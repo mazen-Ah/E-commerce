@@ -1,6 +1,6 @@
 import React from "react";
 import InputForm from "./InputForm";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const FormSign = () => {
   const navigate = useNavigate();
@@ -9,11 +9,6 @@ const FormSign = () => {
     const formData = Object.fromEntries([...new FormData(e.currentTarget)]);
     console.log(formData);
   };
-  const { pathname, search, key, state, hash } = useLocation();
-  console.log(pathname);
-  console.log(hash);
-  console.log(state);
-  console.log(key);
   return (
     <div className="flex justify-center flex-col items-center">
       <h3 className="text-2xl font-bold my-3">Sign Up</h3>
