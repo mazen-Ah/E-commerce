@@ -5,13 +5,28 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { Sign, order } from "../../store/Notice";
 import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
+import { useGetProductsQuery } from "../../store/Api/apiSlice";
 
 const Navbar = () => {
   const { pathname } = useLocation();
+  const { data } = useGetProductsQuery();
+  console.log(data);
   const { toggleSign, toggleOrder } = useSelector((state) => state.Notice);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   console.log(pathname);
+  function findProduct(wordToSearch, ps) {
+    return ps.filter((prod) => {
+      const regex = new RegExp(wordToSearch, "gi");
+      return prod.title.match(regex);
+    });
+  }
+  const [match, setMatch] = useState();
+  function log(e) {
+    const matchArray = findProduct(e.target.value, data);
+    setMatch(matchArray);
+  }
+  console.log(match);
   return (
     <>
       {pathname === "/login" || pathname === "/Sign" ? (
@@ -51,8 +66,9 @@ const Navbar = () => {
               </li>
             </ul>
             <label
-              className="border-2 rounded flex items-center mx-2"
+              className="border-2 rounded flex items-center mx-2 relative"
               htmlFor="search"
+              onMouseLeave={() => setMatch([])}
             >
               <AiOutlineSearch className="opacity-50 mx-1 cursor-pointer" />
               <input
@@ -60,8 +76,30 @@ const Navbar = () => {
                 className="outline-none"
                 type="search"
                 placeholder="Search..."
+                onChange={(e) => log(e)}
               />
+              <ul
+                id="List"
+                className="absolute top-full w-full mt-[1.5px] divide-y"
+              >
+                {match?.map(({ url, title, tag }) => {
+                  return (
+                    <li className="p-2 bg-[#F2F2F2] flex cursor-pointer hover:opacity-90">
+                      <div className="">
+                        <img className="h-8" src={url} alt="" />
+                      </div>
+                      <div className="text-xs ml-3 ">
+                        <h3 className="font-semibold hover:underline">
+                          {title}
+                        </h3>
+                        <h6 className="text-[7px] font-bold">{tag}</h6>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ul>
             </label>
+
             <div className="flex items-center ml-2 relative">
               <div
                 className="flex items-center mx-4 cursor-pointer"

@@ -1,9 +1,6 @@
 import React from "react";
 import Category from "../components/Categories/Category";
-import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
-import Navbar from "../components/Header/Navbar";
-import Layout from "../components/Layout";
 import Products from "../components/Products/Products";
 import SaleCate from "../components/Products/SaleCate";
 

@@ -8,9 +8,7 @@ const Shop = () => {
     <div className="px-4">
       <div className="flex">
         <Sidebar />
-        <div className="pr-10 mb-5">
-          <Products />
-        </div>
+        <div className="pr-10 mb-5"></div>
       </div>
     </div>
   );

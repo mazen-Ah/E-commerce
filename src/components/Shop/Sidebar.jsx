@@ -3,7 +3,7 @@ import React, { useState } from "react";
 const Sidebar = () => {
   const [range, setRange] = useState(0);
   const handlerange = (e) => {
-    setRange(e.target.value * 15);
+    setRange(e.target.value);
   };
   return (
     <div className="w-2/3 mt-14 max-w-[280px]">
@@ -26,7 +26,14 @@ const Sidebar = () => {
       </div>
       <div>
         <h4 className="text-sm font-bold">Filter By Price</h4>
-        <input className="h-[1px]" type="range" onChange={handlerange} />
+        <input
+          className="h-[1px]"
+          type="range"
+          onChange={handlerange}
+          min="0"
+          max="1500"
+          value={range}
+        />
         <p className="text-[10px]">Price: ${range} - $1500</p>
         <button className="text-xs bg-black text-white rounded-md py-1 p-2">
           Fillter

@@ -2,8 +2,8 @@ import React from "react";
 
 const Product = ({ price, tag, title, url }) => {
   return (
-    <div className="my-2">
-      <div className="mb-4 hover:opacity-70 cursor-pointer">
+    <div className="my-2 hover:bg-slate-100 hover:rounded-md hover:opacity-70">
+      <div className="mb-4   cursor-pointer">
         <img className="" src={url} alt="" />
       </div>
       <div className="flex flex-col justify-between">
