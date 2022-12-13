@@ -5,6 +5,7 @@ const Sidebar = () => {
   const handlerange = (e) => {
     setRange(e.target.value);
   };
+
   return (
     <div className="w-2/3 mt-14 max-w-[280px]">
       <div className="mb-6">

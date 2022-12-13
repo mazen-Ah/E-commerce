@@ -1,5 +1,5 @@
 import React from "react";
-import Product from "../Products/Product";
+import Product from "./Product";
 import { useLocation } from "react-router";
 import { useGetProductsQuery } from "../../store/Api/apiSlice";
 const Products = () => {

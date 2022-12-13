@@ -3,30 +3,30 @@ import NoticeSignIn from "./NoticeSignIn";
 import NoticeOrders from "./NoticeOrders";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { rematch, recheck } from "../../store/ProductsSearchSlice";
 import { Sign, order } from "../../store/Notice";
 import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { useGetProductsQuery } from "../../store/Api/apiSlice";
+import { clsx } from "clsx";
+import Menu from "./Menu";
 
 const Navbar = () => {
   const { pathname } = useLocation();
   const { data } = useGetProductsQuery();
-  console.log(data);
   const { toggleSign, toggleOrder } = useSelector((state) => state.Notice);
+  const { match, check } = useSelector((state) => state.Search);
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  console.log(pathname);
   function findProduct(wordToSearch, ps) {
     return ps.filter((prod) => {
       const regex = new RegExp(wordToSearch, "gi");
       return prod.title.match(regex);
     });
   }
-  const [match, setMatch] = useState();
   function log(e) {
     const matchArray = findProduct(e.target.value, data);
-    setMatch(matchArray);
+    dispatch(rematch(matchArray));
   }
-  console.log(match);
   return (
     <>
       {pathname === "/login" || pathname === "/Sign" ? (
@@ -48,13 +48,14 @@ const Navbar = () => {
           </div>
         </div>
       ) : (
-        <div className="py-5 flex justify-between">
+        <div className="py-5 flex justify-between container items-center">
+          <Menu />
           <div className="flex items-center cursor-pointer">
             <AiOutlineShoppingCart className="mx-1 text-sm" />
             <h1 className="text-sm font-bold">Logo</h1>
           </div>
           <div className="flex ">
-            <ul className="flex justify-between gap-x-4 items-center mx-4">
+            <ul className="flex max-sm:hidden justify-between gap-x-4 items-center mx-4">
               <li className="text-xs cursor-pointer hover:underline">
                 <Link to="/">Home</Link>
               </li>
@@ -66,21 +67,24 @@ const Navbar = () => {
               </li>
             </ul>
             <label
-              className="border-2 rounded flex items-center mx-2 relative"
+              className="border-2 rounded flex items-center mx-2 relative max-sm:hidden"
               htmlFor="search"
-              onMouseLeave={() => setMatch([])}
             >
-              <AiOutlineSearch className="opacity-50 mx-1 cursor-pointer" />
+              <AiOutlineSearch className="opacity-50 mx-1 cursor-pointer " />
               <input
                 id="search"
                 className="outline-none"
                 type="search"
                 placeholder="Search..."
-                onChange={(e) => log(e)}
+                onKeyUp={(e) => log(e)}
+                onChange={(e) => dispatch(recheck(e.target.value))}
               />
               <ul
                 id="List"
-                className="absolute top-full w-full mt-[1.5px] divide-y"
+                className={clsx(
+                  check ? "" : "hidden",
+                  "absolute top-full w-full mt-[1.5px] divide-y"
+                )}
               >
                 {match?.map(({ url, title, tag }) => {
                   return (
@@ -99,7 +103,6 @@ const Navbar = () => {
                 })}
               </ul>
             </label>
-
             <div className="flex items-center ml-2 relative">
               <div
                 className="flex items-center mx-4 cursor-pointer"

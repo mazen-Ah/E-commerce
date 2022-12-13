@@ -4,7 +4,7 @@ import Footer from "./Footer/Footer";
 const Layout = ({ children }) => {
   return (
     <>
-      <div className="px-8">
+      <div className="flex flex-col items-center">
         <Navbar />
         {children}
         <Footer />
