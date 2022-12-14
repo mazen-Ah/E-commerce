@@ -1,9 +1,12 @@
 import React from "react";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
-const Menu = () => {
+import Sidenav from "./Sidenav";
+const Menu = ({ menu, setMenu }) => {
+  console.log(menu);
   return (
     <div className="sm:hidden">
-      <AiOutlineMenuUnfold />
+      <AiOutlineMenuUnfold onClick={() => setMenu(true)} />
+      {menu && <Sidenav menu={menu} setMenu={setMenu} />}
     </div>
   );
 };

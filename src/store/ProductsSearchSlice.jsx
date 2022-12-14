@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { useState } from "react";
-const initialState = { match: [], check: false, search: "" };
+const initialState = { match: [], check: false, search: "", result: "" };
 const matchSlice = createSlice({
   name: "match",
   initialState,
@@ -10,6 +10,7 @@ const matchSlice = createSlice({
     },
     recheck: (state, action) => {
       state.check = action.payload.length > 0;
+      state.result = action.payload;
       state.search = action.payload;
     },
   },

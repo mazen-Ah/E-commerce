@@ -6,7 +6,7 @@ import SaleCate from "../components/Products/SaleCate";
 
 const Home = () => {
   return (
-    <div className="px-8">
+    <div className="">
       <Header />
       <Category />
       <h2 className="text-center p-6 font-semibold text-xl">

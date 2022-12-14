@@ -1,27 +1,52 @@
 import React, { useState } from "react";
-
-const Sidebar = () => {
-  const [range, setRange] = useState(0);
+const Sidebar = ({ setPrice, price, setTag }) => {
   const handlerange = (e) => {
-    setRange(e.target.value);
+    setPrice(e.target.value);
   };
-
+  const handleList = (e) => {
+    setTag(e.target.outerText);
+  };
+  const filter = () => {
+    setTag("");
+    setPrice(0);
+  };
   return (
-    <div className="w-2/3 mt-14 max-w-[280px]">
+    <div className="w-2/3 mt-14 max-w-[200px] max-sm:hidden">
       <div className="mb-6">
         <h4 className="font-bold text-sm">Product Categories</h4>
         <ul className="">
-          <li className="text-xs opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer">
+          <li
+            className="text-xs opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer"
+            onClick={(e) => {
+              handleList(e);
+            }}
+          >
             Headphones
           </li>
-          <li className="text-xs opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer">
+          <li
+            className="text-xs opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer"
+            onClick={(e) => {
+              handleList(e);
+            }}
+            value="Headset"
+          >
             Headset
           </li>
-          <li className="text-xs opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer">
-            Laptops
+          <li
+            className="text-xs opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer"
+            onClick={(e) => {
+              handleList(e);
+            }}
+          >
+            Laptop
           </li>
-          <li className="text-xs opacity-70 m-2 mx-4  hover:opacity-100 cursor-pointer">
-            watches
+          <li
+            className="text-xs opacity-70 m-2 mx-4  hover:opacity-100 cursor-pointer"
+            onClick={(e) => {
+              handleList(e);
+            }}
+          >
+            Watches
           </li>
         </ul>
       </div>
@@ -33,10 +58,13 @@ const Sidebar = () => {
           onChange={handlerange}
           min="0"
           max="1500"
-          value={range}
+          value={price}
         />
-        <p className="text-[10px]">Price: ${range} - $1500</p>
-        <button className="text-xs bg-black text-white rounded-md py-1 p-2">
+        <p className="text-[10px]">Price: ${price} - $1500</p>
+        <button
+          className="text-xs bg-black text-white rounded-md py-1 p-2"
+          onClick={() => filter()}
+        >
           Fillter
         </button>
       </div>

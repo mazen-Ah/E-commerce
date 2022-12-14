@@ -4,7 +4,7 @@ import Credits from "./Credits";
 const Footer = () => {
   return (
     <>
-      <div className="flex flex-col justify-center items-center p-10 pt-0">
+      <div className="flex flex-col justify-between items-center p-10 pt-0">
         <div className="flex p-8 gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -16,7 +16,6 @@ const Footer = () => {
           </svg>
           <h2 className="text-xs">Logo</h2>
         </div>
-
         <div className="flex gap-x-10">
           <h4 className="font-medium text-xs">
             <a href="#">Home</a>

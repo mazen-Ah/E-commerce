@@ -1,37 +1,73 @@
 import React from "react";
+import clsx from "clsx";
 import { useLocation } from "react-router";
 import Product from "../Products/Product";
 import { useSelector } from "react-redux";
 import { useGetProductsQuery } from "../../store/Api/apiSlice";
-const AllProducts = () => {
+const AllProducts = ({ tag, price }) => {
   const { data } = useGetProductsQuery();
-  const { match, check } = useSelector((state) => state.Search);
+  const { match, check, result } = useSelector((state) => state.Search);
   return (
-    <div className="grid lg:grid-cols-4 md:grid-cols-3 gap-4 my-2 max-md:grid-cols-2">
-      {check
-        ? match?.map((prod, i) => {
-            return (
-              <Product
-                key={i}
-                price={prod.price}
-                tag={prod.tag}
-                title={prod.title}
-                url={prod.url}
-              />
-            );
-          })
-        : data?.map((prod, i) => {
-            return (
-              <Product
-                key={i}
-                price={prod.price}
-                tag={prod.tag}
-                title={prod.title}
-                url={prod.url}
-              />
-            );
-          })}
-    </div>
+    <>
+      <h2 className="text-4xl font-bold mb-10">
+        {check ? `Search: ${result}` : `Shop`}
+      </h2>
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 gap-4 my-2 max-md:grid-cols-2">
+        {tag.length
+          ? check
+            ? match?.map((prod, i) => {
+                if (prod.tag === tag)
+                  if (prod.price > price)
+                    return (
+                      <Product
+                        key={i}
+                        price={prod.price}
+                        tag={prod.tag}
+                        title={prod.title}
+                        url={prod.url}
+                      />
+                    );
+              })
+            : data?.map((prod, i) => {
+                if (prod.tag === tag)
+                  if (prod.price > price)
+                    return (
+                      <Product
+                        key={i}
+                        price={prod.price}
+                        tag={prod.tag}
+                        title={prod.title}
+                        url={prod.url}
+                      />
+                    );
+              })
+          : check
+          ? match?.map((prod, i) => {
+              if (prod.price > price)
+                return (
+                  <Product
+                    key={i}
+                    price={prod.price}
+                    tag={prod.tag}
+                    title={prod.title}
+                    url={prod.url}
+                  />
+                );
+            })
+          : data?.map((prod, i) => {
+              if (prod.price > price)
+                return (
+                  <Product
+                    key={i}
+                    price={prod.price}
+                    tag={prod.tag}
+                    title={prod.title}
+                    url={prod.url}
+                  />
+                );
+            })}
+      </div>
+    </>
   );
 };
 

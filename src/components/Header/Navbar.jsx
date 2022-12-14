@@ -8,6 +8,7 @@ import { Sign, order } from "../../store/Notice";
 import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { useGetProductsQuery } from "../../store/Api/apiSlice";
 import { clsx } from "clsx";
+
 import Menu from "./Menu";
 
 const Navbar = () => {
@@ -27,6 +28,7 @@ const Navbar = () => {
     const matchArray = findProduct(e.target.value, data);
     dispatch(rematch(matchArray));
   }
+  const [menu, setMenu] = useState(false);
   return (
     <>
       {pathname === "/login" || pathname === "/Sign" ? (
@@ -48,12 +50,15 @@ const Navbar = () => {
           </div>
         </div>
       ) : (
-        <div className="py-5 flex justify-between container items-center">
-          <Menu />
-          <div className="flex items-center cursor-pointer">
-            <AiOutlineShoppingCart className="mx-1 text-sm" />
-            <h1 className="text-sm font-bold">Logo</h1>
-          </div>
+        <div className="py-5 flex justify-between relative items-center container">
+          <Menu menu={menu} setMenu={setMenu} />
+          <Link to="/">
+            <div className="flex items-center cursor-pointer ">
+              <AiOutlineShoppingCart className="mx-1 text-sm" />
+              <h1 className="text-sm font-bold">Logo</h1>
+            </div>
+          </Link>
+
           <div className="flex ">
             <ul className="flex max-sm:hidden justify-between gap-x-4 items-center mx-4">
               <li className="text-xs cursor-pointer hover:underline">
@@ -67,7 +72,7 @@ const Navbar = () => {
               </li>
             </ul>
             <label
-              className="border-2 rounded flex items-center mx-2 relative max-sm:hidden"
+              className="border-2 rounded flex items-center mx-2 relative"
               htmlFor="search"
             >
               <AiOutlineSearch className="opacity-50 mx-1 cursor-pointer " />
@@ -105,7 +110,7 @@ const Navbar = () => {
             </label>
             <div className="flex items-center ml-2 relative">
               <div
-                className="flex items-center mx-4 cursor-pointer"
+                className="flex items-center cursor-pointer"
                 onClick={() => dispatch(Sign())}
               >
                 <svg
