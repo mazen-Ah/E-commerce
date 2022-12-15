@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NoticeSignIn from "./NoticeSignIn";
 import NoticeOrders from "./NoticeOrders";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { rematch, recheck } from "../../store/ProductsSearchSlice";
 import { Sign, order } from "../../store/Notice";
@@ -50,26 +50,23 @@ const Navbar = () => {
           </div>
         </div>
       ) : (
-        <div className="py-5 flex justify-between relative items-center container">
+        <div className="py-5 flex justify-between relative items-center">
           <Menu menu={menu} setMenu={setMenu} />
           <Link to="/">
             <div className="flex items-center cursor-pointer ">
-              <AiOutlineShoppingCart className="mx-1 text-sm" />
-              <h1 className="text-sm font-bold">Logo</h1>
+              <AiOutlineShoppingCart className="mx-1 text-lg" />
+              <h1 className="text-lg font-bold">Logo</h1>
             </div>
           </Link>
-
           <div className="flex ">
             <ul className="flex max-sm:hidden justify-between gap-x-4 items-center mx-4">
-              <li className="text-xs cursor-pointer hover:underline">
-                <Link to="/">Home</Link>
+              <li className="text-base px-2 cursor-pointer rounded-md">
+                <NavLink to="/">Home</NavLink>
               </li>
-              <li className="text-xs cursor-pointer hover:underline">
-                <Link to="/Shop">Shop</Link>
+              <li className="text-base px-2 cursor-pointer">
+                <NavLink to="/Shop">Shop</NavLink>
               </li>
-              <li className="text-xs cursor-pointer hover:underline">
-                Contact Us
-              </li>
+              <li className="text-base px-2 py-2 cursor-pointer">Contact Us</li>
             </ul>
             <label
               className="border-2 rounded flex items-center mx-2 relative"

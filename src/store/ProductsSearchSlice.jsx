@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { useState } from "react";
 const initialState = { match: [], check: false, search: "", result: "" };
 const matchSlice = createSlice({
   name: "match",

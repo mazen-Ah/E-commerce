@@ -13,9 +13,8 @@ function App() {
       <div className="App">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/Shop" element={<Shop />}>
-            <Route path="Product" element={<ProducePage />} />
-          </Route>
+          <Route path="/:productId" element={<ProducePage />} />
+          <Route path="/Shop" element={<Shop />} />
           <Route path="/login" element={<Log />} />
           <Route path="/Sign" element={<Sign />} />
           <Route path="*" element={<NoFound />} />
