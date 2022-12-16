@@ -9,7 +9,7 @@ const Category = () => {
         Our Categories
       </h2>
       <Layout />
-      <LayoutTwo />
+      {/* <LayoutTwo /> */}
     </div>
   );
 };

@@ -20,7 +20,7 @@ const AllProducts = ({ tag, price }) => {
                   if (prod.price > price)
                     return (
                       <Product
-                        id={i}
+                        id={prod.id}
                         key={i}
                         price={prod.price}
                         tag={prod.tag}
@@ -34,7 +34,7 @@ const AllProducts = ({ tag, price }) => {
                   if (prod.price > price)
                     return (
                       <Product
-                        id={i}
+                        id={prod.id}
                         key={i}
                         price={prod.price}
                         tag={prod.tag}
@@ -48,7 +48,7 @@ const AllProducts = ({ tag, price }) => {
               if (prod.price > price)
                 return (
                   <Product
-                    id={i}
+                    id={prod.id}
                     key={i}
                     price={prod.price}
                     tag={prod.tag}
@@ -61,7 +61,7 @@ const AllProducts = ({ tag, price }) => {
               if (prod.price > price)
                 return (
                   <Product
-                    id={i}
+                    id={prod.id}
                     key={i}
                     price={prod.price}
                     tag={prod.tag}
