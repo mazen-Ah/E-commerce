@@ -95,7 +95,7 @@ const Navbar = () => {
                         <img className="h-8" src={url} alt="" />
                       </div>
                       <div className="text-xs ml-3 ">
-                        <h3 className="font-semibold hover:underline">
+                        <h3 className="font-semibold text-xs hover:underline">
                           {title}
                         </h3>
                         <h6 className="text-[7px] font-bold">{tag}</h6>
