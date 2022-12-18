@@ -11,7 +11,7 @@ const Sidenav = ({ menu, setMenu }) => {
   const { pathname } = useLocation();
   console.log(pathname);
   return (
-    <div className="absolute -left-[10px] top-0 bg-slate-300 w-1/3 h-[80vh] z-10">
+    <div className="left-0 top-0 bg-slate-300 w-1/3 h-[100vh] fixed z-20">
       <div className="relative">
         <AiOutlineMenuFold
           className="ml-2 mt-2 mb-4"

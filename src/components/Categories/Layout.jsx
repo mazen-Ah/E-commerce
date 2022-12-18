@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 const Layout = () => {
   return (
     <div className="grid max-sm:grid-cols-2 grid-cols-5 gap-4 mb-4 relative">
-      <div className="flex bg-[#1D1D1D] w-full h-full rounded-lg relative">
+      <div className="flex bg-[#1D1D1D] w-full h-full rounded-lg relative hover:opacity-90 cursor-pointer">
         <div className="self-end p-3 h-fit z-10">
           <h6 className="text-white font-medium text-lg max-lg:text-xs">
             Enjoy
@@ -12,7 +12,7 @@ const Layout = () => {
           <h6 className="text-white font-medium text-lg my-2 max-lg:text-xs">
             With
           </h6>
-          <h6 className="text-white font-bold my-4 max-lg:text-sm">
+          <h6 className="text-white font-bold my-4 max-lg:text-base">
             HEADPHONES
           </h6>
           <Button
@@ -25,13 +25,13 @@ const Layout = () => {
           <img className="" src="./assets/Layout/Mask-Group-5-1.png" alt="" />
         </div>
       </div>
-      <div className=" rounded-lg flex bg-[#FECA3C] relative items-center">
+      <div className=" rounded-lg flex bg-[#FECA3C] relative items-center hover:opacity-90 cursor-pointer">
         <div className="self-end p-3 h-fit z-10">
           <h6 className="text-white font-medium text-lg max-lg:text-xs">New</h6>
-          <h6 className="text-white font-medium text-lg max-lg:text-xs">
+          <h6 className="text-white font-medium text-lg max-lg:text-xs my-2">
             Wear
           </h6>
-          <h6 className="text-white font-bold text-3xl my-4 max-lg:text-xl">
+          <h6 className="text-white font-bold text-3xl my-4 max-lg:text-base">
             Gadgets
           </h6>
           <Button
@@ -48,10 +48,10 @@ const Layout = () => {
           />
         </div>
       </div>
-      <div className="col-span-3 rounded-lg flex bg-[#F53943] relative">
+      <div className="col-span-3 rounded-lg flex bg-[#F53943] relative hover:opacity-90 cursor-pointer">
         <div className="self-end p-3">
           <h6 className="max-lg:text-xs text-white font-medium">Trend</h6>
-          <h6 className="max-lg:text-xs text-1xl text-white font-bold">
+          <h6 className="max-lg:text-xs text-1xl text-white font-bold my-2">
             Devices
           </h6>
           <h6 className="max-lg:text-2xl text-3xl text-white font-bold my-4">
