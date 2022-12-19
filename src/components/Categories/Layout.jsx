@@ -37,7 +37,7 @@ const Layout = () => {
           <Button
             text="Browse"
             to="/Shop"
-            className="bg-white hover:bg-black hover:text-white "
+            className="bg-white hover:text-[#FECA3C] hover:bg-black"
           />
         </div>
         <div className="absolute w-full right-0">
@@ -60,7 +60,7 @@ const Layout = () => {
           <Button
             text="Browse"
             to="/Shop"
-            className="bg-white hover:bg-black hover:text-white "
+            className="bg-white hover:text-[#F53943] hover:bg-black"
           />
         </div>
         <div className="">

@@ -132,7 +132,7 @@ const ProducePage = () => {
                   <textarea
                     name="review"
                     id="review"
-                    className="border-[2px] border-black w-2/3 h-48 rounded-md border-opacity-20 shadow-md mt-2"
+                    className="border-[2px] p-1 border-black w-2/3 h-48 rounded-md border-opacity-20 shadow-md mt-2"
                     placeholder="Type your review..."
                   ></textarea>
                   <button

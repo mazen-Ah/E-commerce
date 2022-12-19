@@ -75,7 +75,7 @@ const Navbar = () => {
               <AiOutlineSearch className="opacity-50 mx-1 cursor-pointer " />
               <input
                 id="search"
-                className="outline-none"
+                className="outline-none max-sm:w-3"
                 type="search"
                 placeholder="Search..."
                 onKeyUp={(e) => log(e)}
@@ -85,7 +85,7 @@ const Navbar = () => {
                 id="List"
                 className={clsx(
                   check ? "" : "hidden",
-                  "absolute top-full w-full mt-[1.5px] divide-y"
+                  "absolute top-full w-full mt-[1.5px] divide-y z-50"
                 )}
               >
                 {match?.map(({ url, title, tag }) => {
