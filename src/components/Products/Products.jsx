@@ -1,11 +1,8 @@
 import React from "react";
 import Product from "./Product";
-import { useLocation } from "react-router";
 import { useGetProductsQuery } from "../../store/Api/apiSlice";
 const Products = () => {
   const { data } = useGetProductsQuery();
-  const { pathname } = useLocation();
-  console.log(data);
   return (
     <div className="">
       <div className="mb-12">

@@ -75,7 +75,7 @@ const Navbar = () => {
               <AiOutlineSearch className="opacity-50 mx-1 cursor-pointer " />
               <input
                 id="search"
-                className="outline-none max-sm:w-3"
+                className="outline-none max-sm:w-10"
                 type="search"
                 placeholder="Search..."
                 onKeyUp={(e) => log(e)}

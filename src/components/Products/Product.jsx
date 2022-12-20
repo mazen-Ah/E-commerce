@@ -2,7 +2,6 @@ import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
 const Product = ({ price, tag, title, url, id }) => {
-  console.log(url);
   return (
     <Link to={`/${id}`}>
       <div className="my-2 hover:bg-slate-100 hover:rounded-md hover:opacity-70 cursor-pointer ">

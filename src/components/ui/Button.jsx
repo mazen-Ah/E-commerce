@@ -2,7 +2,6 @@ import React from "react";
 import { useNavigate } from "react-router";
 const Button = ({ to, className, text }) => {
   const navigator = useNavigate();
-  console.log(to);
   return (
     <button
       onClick={() => navigator(to)}
