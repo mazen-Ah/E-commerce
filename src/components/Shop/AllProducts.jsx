@@ -12,7 +12,7 @@ const AllProducts = ({ tag, price }) => {
       <h2 className="text-4xl font-bold mb-10">
         {check ? `Search: ${result}` : `Shop`}
       </h2>
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 gap-4 my-2 max-md:grid-cols-2">
+      <div className="grid md:grid-cols-3 gap-x-6 gap-y-10 my-2 max-md:grid-cols-2">
         {tag.length
           ? check
             ? match?.map((prod, i) => {

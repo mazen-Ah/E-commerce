@@ -10,7 +10,7 @@ export const apiSlice = createApi({
     }),
     getOneProduct: query({
       query: (id) => `/products/${id}`,
-      invalidatesTags: ["Products"],
+      providesTags: ["Products"],
     }),
     postReview: mutation({
       query: (body) => ({

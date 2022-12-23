@@ -88,19 +88,24 @@ const Navbar = () => {
                   "absolute top-full w-full mt-[1.5px] divide-y z-50"
                 )}
               >
-                {match?.map(({ url, title, tag }) => {
+                {match?.map(({ url, title, tag, id }) => {
                   return (
-                    <li className="p-2 bg-[#F2F2F2] flex cursor-pointer hover:opacity-90">
-                      <div className="">
-                        <img className="h-8" src={url} alt="" />
-                      </div>
-                      <div className="text-xs ml-3 ">
-                        <h3 className="font-semibold text-xs hover:underline">
-                          {title}
-                        </h3>
-                        <h6 className="text-[7px] font-bold">{tag}</h6>
-                      </div>
-                    </li>
+                    <Link
+                      to={`/${id}`}
+                      onClick={(e) => dispatch(recheck(false))}
+                    >
+                      <li className="p-2 bg-[#F2F2F2] flex cursor-pointer hover:opacity-90">
+                        <div className="">
+                          <img className="h-8" src={url} alt="" />
+                        </div>
+                        <div className="text-xs ml-3 ">
+                          <h3 className="font-semibold text-xs hover:underline">
+                            {title}
+                          </h3>
+                          <h6 className="text-[7px] font-bold">{tag}</h6>
+                        </div>
+                      </li>
+                    </Link>
                   );
                 })}
               </ul>
@@ -126,8 +131,8 @@ const Navbar = () => {
                 </svg>
                 <span className="text-xs">(1)</span>
               </div>
-              {toggleSign && <NoticeSignIn />}
-              {toggleOrder && <NoticeOrders />}
+              {toggleOrder && <NoticeSignIn />}
+              {toggleSign && <NoticeOrders />}
               <div
                 className="flex items-center mx-4 cursor-pointer"
                 onClick={() => dispatch(order())}

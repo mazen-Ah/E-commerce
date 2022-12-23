@@ -7,6 +7,7 @@ import Shop from "./pages/Shop";
 import Layout from "./components/Layout";
 import NoFound from "./pages/NoFound";
 import ProducePage from "./pages/ProducePage";
+import Cart from "./pages/Cart";
 function App() {
   return (
     <Layout>
@@ -18,6 +19,7 @@ function App() {
           <Route path="/login" element={<Log />} />
           <Route path="/Sign" element={<Sign />} />
           <Route path="*" element={<NoFound />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
       </div>
     </Layout>

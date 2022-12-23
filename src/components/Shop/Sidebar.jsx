@@ -11,8 +11,8 @@ const Sidebar = ({ setPrice, price, setTag }) => {
     setPrice(0);
   };
   return (
-    <div className="w-2/3 mt-14 max-w-[200px] max-sm:hidden">
-      <div className="mb-6">
+    <div className="w-2/3 mt-24 max-w-[200px] max-sm:hidden px-6">
+      <div className="">
         <h4 className="font-bold text-sm">Product Categories</h4>
         <ul className="">
           <li
@@ -50,7 +50,7 @@ const Sidebar = ({ setPrice, price, setTag }) => {
           </li>
         </ul>
       </div>
-      <div>
+      <div className="py-6">
         <h4 className="text-sm font-bold">Filter By Price</h4>
         <input
           className="h-[1px]"

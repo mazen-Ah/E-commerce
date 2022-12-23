@@ -6,7 +6,7 @@ const Shop = () => {
   const [tag, setTag] = useState("");
   const [price, setPrice] = useState(0);
   return (
-    <div className="px-4">
+    <div className="">
       <div className="flex">
         <Sidebar setTag={setTag} price={price} setPrice={setPrice} />
         <div className="mb-5">

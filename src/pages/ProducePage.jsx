@@ -18,11 +18,22 @@ const ProducePage = () => {
       e.target.reset();
     }
   }
-  const ss = (
-    <div>
-      <img src="./assets/vector.png" alt="" />
-    </div>
-  );
+  let stars = [];
+  let emptyStars = [];
+  // for (let i = 0; i < data?.rate - 5; i++) {
+  //   emptyStars.push(
+  //     <div>
+  //       <img src="./assets/vector (1).png" alt="" />
+  //     </div>
+  //   );
+  // }
+  // for (let i = 0; i < 4 || 5; i++) {
+  //   stars.push(
+  //     <div>
+  //       <img src="./assets/vector.png" alt="" />
+  //     </div>
+  //   );
+  // }
   return (
     <div className="my-10">
       <div className="max-sm:grid-cols-1 grid grid-cols-2 items-center gap-10">
@@ -50,20 +61,13 @@ const ProducePage = () => {
         <div className="grid px-4">
           <h2 className="text-2xl font-bold my-4">{data?.title}</h2>
           <h4 className="text-xl font-medium my-4">{data?.price}$</h4>
-          <div className="flex">
-            {/* {ss.repeat(2)} */}
-            <div>
-              <img src="./assets/vector.png" alt="" />
-            </div>
-            <div>
-              <img src="./assets/vector.png" alt="" />
-            </div>
-            <div>
-              <img src="./assets/vector.png" alt="" />
-            </div>
-            <div>
-              <img src="./assets/vector (1).png" alt="" />
-            </div>
+          <div id="stars" className="flex">
+            {/* {stars?.map((star) => {
+              return star;
+            })} */}
+            {/* {emptyStars?.map((star) => {
+              return star;
+            })} */}
           </div>
           <p className="my-4 font-light">{data?.Description}</p>
           <div className="font-semibold my-4">
