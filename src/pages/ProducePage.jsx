@@ -4,11 +4,15 @@ import { useParams } from "react-router";
 import { usePostReviewMutation } from "../store/Api/apiSlice";
 import { useGetOneProductQuery } from "../store/Api/apiSlice";
 import { RxAvatar } from "react-icons/rx";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../store/ProductsInCart";
 const ProducePage = () => {
+  const { inCart } = useSelector((state) => state.Cart);
   const [taps, setTaps] = useState(false);
   const { productId } = useParams();
   const { data } = useGetOneProductQuery(productId);
   const [postReview] = usePostReviewMutation();
+  const dispatch = useDispatch();
   console.log(data?.rate);
   function handleReview(e) {
     e.preventDefault();
@@ -18,6 +22,10 @@ const ProducePage = () => {
       e.target.reset();
     }
   }
+  console.log(inCart);
+  const toCart = () => {
+    dispatch(addToCart(data));
+  };
   let stars = [];
   let emptyStars = [];
   // for (let i = 0; i < data?.rate - 5; i++) {
@@ -81,7 +89,10 @@ const ProducePage = () => {
             className="grid grid-cols-2 gap-4
             "
           >
-            <button className="bg-black text-white px-4 py-2 rounded-lg">
+            <button
+              onClick={() => toCart()}
+              className="bg-black text-white px-4 py-2 rounded-lg"
+            >
               Add to cart
             </button>
             <button className="border rounded-lg">Buy Now</button>
