@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import Button from "../ui/Button";
 const Header = () => {
   return (
-    <div className="w-full rounded-2xl object-cover bg-gradient-to-br from-black/50 to-black/20 relative">
-      <div className="">
+    <div className="relative my-16 flex  h-full min-h-[400px] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-black/50 to-black/20 sm:my-16">
+      <div className="w-full">
         <img className="" src="./assets/HeadPhone.png" alt="" />
       </div>
-      <div className="absolute z-10 top-1/4 left-4">
+      <div className="absolute left-1 space-y-1 rounded-3xl p-5 sm:left-8 sm:space-y-3 sm:text-left">
         <h5 className="font-semibold max-sm:text-sm">Beast Solo</h5>
         <h2 className="max-w-xs font-bold max-sm:text-xl">Wireless</h2>
         <h2 className="text-white font-bold max-sm:text-xl">Headphones</h2>

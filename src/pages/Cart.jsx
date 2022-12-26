@@ -17,7 +17,24 @@ const Cart = () => {
         setTotal(a.price + c.price);
       });
   }, [inCart]);
-
+  const carts =
+    inCart.length === 0 ? (
+      <h2 className="opacity-30 text-xl p-2">Your Cart is Empty</h2>
+    ) : (
+      inCart.map((item, i) => {
+        return (
+          <ProductCart
+            id={item.id}
+            price={item.price}
+            title={item.title}
+            url={item.url}
+            item={item}
+            i={i}
+            Quantity={1}
+          />
+        );
+      })
+    );
   return (
     <div className="w-full grid">
       <ul className="grid grid-cols-4 items-end text-center">
@@ -26,20 +43,9 @@ const Cart = () => {
         <li className="">Quantity</li>
         <li className="">Total</li>
       </ul>
-      <div className="divide-y py-6">
-        {inCart.map((item, i) => {
-          return (
-            <ProductCart
-              id={item.id}
-              price={item.price}
-              title={item.title}
-              url={item.url}
-              item={item}
-              i={i}
-              Quantity={1}
-            />
-          );
-        })}
+
+      <div className="divide-y py-6 text-center">
+        {carts}
         <Coupon />
       </div>
       <div className="grid grid-cols-2 gap-x-40 my-24">

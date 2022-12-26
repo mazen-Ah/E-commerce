@@ -8,9 +8,7 @@ import { Sign, order } from "../../store/Notice";
 import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { useGetProductsQuery } from "../../store/Api/apiSlice";
 import { clsx } from "clsx";
-
 import Menu from "./Menu";
-
 const Navbar = () => {
   const { pathname } = useLocation();
   const { data } = useGetProductsQuery();
@@ -53,35 +51,32 @@ const Navbar = () => {
       ) : (
         <div className="py-5 flex justify-between relative items-center">
           <Menu menu={menu} setMenu={setMenu} />
-          <Link to="/">
-            <div className="flex items-center cursor-pointer ">
-              <AiOutlineShoppingCart className="mx-1 text-lg" />
-              <h1 className="text-lg font-bold">Logo</h1>
-            </div>
-          </Link>
-          <div className="flex ">
+          <div className="flex w-full">
             <ul className="flex max-sm:hidden justify-between gap-x-4 items-center mx-4">
-              <li className="text-base px-2 cursor-pointer rounded-md">
-                <NavLink to="/">Home</NavLink>
-              </li>
+              <Link to="/">
+                <div className="flex items-center cursor-pointer ">
+                  <AiOutlineShoppingCart className="mx-1 text-lg" />
+                  <h1 className="text-lg font-bold">Logo</h1>
+                </div>
+              </Link>
               <li className="text-base px-2 cursor-pointer">
-                <NavLink to="/Shop">Shop</NavLink>
+                <Link to="/Shop">Shop</Link>
               </li>
-              <li className="text-base px-2 py-2 cursor-pointer">Contact Us</li>
+              <li className="text-base px-2 py-2 cursor-pointer">Contact</li>
             </ul>
             <label
-              className="border-2 rounded flex items-center mx-2 relative"
+              className="border-2 rounded-xl w-full flex items-center mx-2 relative max-sm:hidden"
               htmlFor="search"
             >
-              <AiOutlineSearch className="opacity-50 mx-1 cursor-pointer " />
               <input
                 id="search"
-                className="outline-none max-sm:w-10"
+                className="outline-none w-full py-1"
                 type="search"
-                placeholder="Search..."
+                placeholder="What are you looking for?"
                 onKeyUp={(e) => log(e)}
                 onChange={(e) => dispatch(recheck(e.target.value))}
               />
+              <AiOutlineSearch className="mx-4 cursor-pointer text-xl" />
               <ul
                 id="List"
                 className={clsx(
@@ -111,18 +106,37 @@ const Navbar = () => {
                 })}
               </ul>
             </label>
-            <div className="flex items-center ml-2 relative">
+            <div className="flex items-center relative">
+              {toggleOrder && <NoticeSignIn />}
+              {toggleSign && <NoticeOrders />}
+              <div
+                className="flex items-center mx-4 cursor-pointer"
+                // onClick={() => dispatch(order())}
+              >
+                <div className="text-sm flex px-2 font-medium justify-between items-center text-center space-x-6">
+                  <Link
+                    className="whitespace-nowrap text-gray-700 hover:text-gray-800"
+                    aria-hidden="true"
+                  >
+                    Sign in
+                  </Link>
+                  <span className="w-px bg-gray-200 h-6"></span>
+                  <Link className="whitespace-nowrap text-gray-700 hover:text-gray-800">
+                    Create account
+                  </Link>
+                </div>
+              </div>
               <div
                 className="flex items-center cursor-pointer"
-                onClick={() => dispatch(Sign())}
+                // onClick={() => dispatch(Sign())}
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
-                  strokeWidth={1.5}
+                  strokeWidth={2}
                   stroke="currentColor"
-                  className="w-4 h-4 "
+                  className="w-6 h-6 opacity-40"
                 >
                   <path
                     strokeLinecap="round"
@@ -130,28 +144,9 @@ const Navbar = () => {
                     d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                   />
                 </svg>
-                <span className="text-xs">({inCart.length})</span>
-              </div>
-              {toggleOrder && <NoticeSignIn />}
-              {toggleSign && <NoticeOrders />}
-              <div
-                className="flex items-center mx-4 cursor-pointer"
-                onClick={() => dispatch(order())}
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-4 h-4 cursor-pointer"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                  />
-                </svg>
+                <span className="text-sm font-medium mx-2">
+                  {inCart.length}
+                </span>
               </div>
             </div>
           </div>
