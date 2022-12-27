@@ -9,6 +9,7 @@ import { AiOutlineSearch, AiOutlineShoppingCart } from "react-icons/ai";
 import { useGetProductsQuery } from "../../store/Api/apiSlice";
 import { clsx } from "clsx";
 import Menu from "./Menu";
+import ShopingCart from "./sideCart/ShopingCart";
 const Navbar = () => {
   const { pathname } = useLocation();
   const { data } = useGetProductsQuery();
@@ -28,6 +29,7 @@ const Navbar = () => {
     dispatch(rematch(matchArray));
   }
   const [menu, setMenu] = useState(false);
+  const [cart, setCart] = useState(false);
   return (
     <>
       {pathname === "/login" || pathname === "/Sign" ? (
@@ -70,7 +72,7 @@ const Navbar = () => {
             >
               <input
                 id="search"
-                className="outline-none w-full py-1"
+                className="outline-none w-full py-1 px-6"
                 type="search"
                 placeholder="What are you looking for?"
                 onKeyUp={(e) => log(e)}
@@ -126,10 +128,8 @@ const Navbar = () => {
                   </Link>
                 </div>
               </div>
-              <div
-                className="flex items-center cursor-pointer"
-                // onClick={() => dispatch(Sign())}
-              >
+              <ShopingCart />
+              <div className="flex items-center cursor-pointer">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

@@ -1,14 +1,15 @@
 import React from "react";
 import { AiOutlineMenuUnfold } from "react-icons/ai";
-import Sidenav from "./Sidenav";
+import SideNav from "./sideNav/SideNav";
 const Menu = ({ menu, setMenu }) => {
+  console.log(menu);
   return (
-    <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+    <div className="">
       <AiOutlineMenuUnfold
-        className="text-xl opacity-40"
+        className="text-2xl opacity-40 cursor-pointer"
         onClick={() => setMenu(true)}
       />
-      {menu && <Sidenav menu={menu} setMenu={setMenu} />}
+      {menu && <SideNav menu={menu} setMenu={setMenu} />}
     </div>
   );
 };
