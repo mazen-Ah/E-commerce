@@ -4,7 +4,7 @@ import SideNav from "./sideNav/SideNav";
 const Menu = ({ menu, setMenu }) => {
   console.log(menu);
   return (
-    <div className="">
+    <div className="sm:hidden">
       <AiOutlineMenuUnfold
         className="text-2xl opacity-40 cursor-pointer"
         onClick={() => setMenu(true)}

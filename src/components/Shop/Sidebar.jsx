@@ -11,12 +11,12 @@ const Sidebar = ({ setPrice, price, setTag }) => {
     setPrice(0);
   };
   return (
-    <div className="w-2/3 mt-24 max-w-[200px] max-sm:hidden px-6">
-      <div className="">
-        <h4 className="font-bold text-sm">Product Categories</h4>
+    <div className="w-full max-w-[250px] max-sm:hidden px-3 py-6">
+      <div className="grid">
+        <h4 className="font-bold text-lg mx-1">Product Categories</h4>
         <ul className="">
           <li
-            className="text-xs opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer"
+            className="text-sm opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer"
             onClick={(e) => {
               handleList(e);
             }}
@@ -24,7 +24,7 @@ const Sidebar = ({ setPrice, price, setTag }) => {
             Headphones
           </li>
           <li
-            className="text-xs opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer"
+            className="text-sm opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer"
             onClick={(e) => {
               handleList(e);
             }}
@@ -33,7 +33,7 @@ const Sidebar = ({ setPrice, price, setTag }) => {
             Headset
           </li>
           <li
-            className="text-xs opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer"
+            className="text-sm opacity-70 m-2 mx-4 hover:opacity-100 cursor-pointer"
             onClick={(e) => {
               handleList(e);
             }}
@@ -41,7 +41,7 @@ const Sidebar = ({ setPrice, price, setTag }) => {
             Laptop
           </li>
           <li
-            className="text-xs opacity-70 m-2 mx-4  hover:opacity-100 cursor-pointer"
+            className="text-sm opacity-70 m-2 mx-4  hover:opacity-100 cursor-pointer"
             onClick={(e) => {
               handleList(e);
             }}
@@ -50,19 +50,19 @@ const Sidebar = ({ setPrice, price, setTag }) => {
           </li>
         </ul>
       </div>
-      <div className="py-6">
-        <h4 className="text-sm font-bold">Filter By Price</h4>
+      <div className="py-6 mx-1">
+        <h4 className="text-lg font-bold ">Filter By Price</h4>
         <input
-          className="h-[1px]"
+          className="h-[1px] my-2"
           type="range"
           onChange={handlerange}
           min="0"
           max="1500"
           value={price}
         />
-        <p className="text-[10px]">Price: ${price} - $1500</p>
+        <p className="text-[10px] mb-2">Price: ${price} - $1500</p>
         <button
-          className="text-xs bg-black text-white rounded-md py-1 p-2"
+          className="text-sm bg-black text-white rounded-md py-1 p-4"
           onClick={() => filter()}
         >
           Fillter

@@ -3,7 +3,7 @@ import Button from "../ui/Button";
 
 const Layout = () => {
   return (
-    <div className="grid max-sm:grid-cols-2 grid-cols-5 gap-4 mb-4 relative">
+    <div className="grid max-sm:grid-cols-2 grid-cols-4 gap-4 mb-4 relative">
       <div className="flex bg-[#1D1D1D] w-full h-full rounded-lg relative hover:opacity-90 cursor-pointer">
         <div className="self-end p-3 h-fit z-10">
           <h6 className="text-white font-medium text-lg max-lg:text-xs">
@@ -48,7 +48,7 @@ const Layout = () => {
           />
         </div>
       </div>
-      <div className="col-span-3 rounded-lg flex bg-[#F53943] relative hover:opacity-90 cursor-pointer">
+      <div className="col-span-2 rounded-lg flex bg-[#F53943] relative hover:opacity-90 cursor-pointer">
         <div className="self-end p-3">
           <h6 className="max-lg:text-xs text-white font-medium">Trend</h6>
           <h6 className="max-lg:text-xs text-1xl text-white font-bold my-2">

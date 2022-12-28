@@ -9,13 +9,13 @@ const Product = ({ price, tag, title, url, id }) => {
           <img className="h-full w-full" src={url} alt="" />
         </div>
         <div className="flex flex-col justify-between px-2 py-1">
-          <h6 className="text-[7px] font-bold bg-[#F4F4F4] w-fit p-2 rounded-md -mt-2">
+          <h6 className="text-[12px] lett font-bold tracking-wide bg-[#F4F4F4] w-fit py-1 px-2 rounded-md -mt-2">
             {tag}
           </h6>
-          <h5 className="font-bold text-[14px] cursor-pointer w-fit p-1">
+          <h5 className="font-semibold text-base cursor-pointer w-fit py-1 px-1">
             {title}
           </h5>
-          <h4 className="font-bold text-[14px] w-fit p-1">${price}</h4>
+          <h4 className="font-semibold text-base w-fit p-1">${price}</h4>
         </div>
       </div>
     </Link>

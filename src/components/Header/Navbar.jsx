@@ -53,21 +53,23 @@ const Navbar = () => {
       ) : (
         <div className="py-5 flex justify-between relative items-center">
           <Menu menu={menu} setMenu={setMenu} />
-          <div className="flex w-full">
-            <ul className="flex max-sm:hidden justify-between gap-x-4 items-center mx-4">
+          <div className="flex w-full max-sm:justify-between max-sm:items-center">
+            <ul className="flex justify-between gap-x-4 items-center mx-4">
               <Link to="/">
                 <div className="flex items-center cursor-pointer ">
                   <AiOutlineShoppingCart className="mx-1 text-lg" />
                   <h1 className="text-lg font-bold">Logo</h1>
                 </div>
               </Link>
-              <li className="text-base px-2 cursor-pointer">
+              <li className="text-base px-2 cursor-pointer  max-sm:hidden">
                 <Link to="/Shop">Shop</Link>
               </li>
-              <li className="text-base px-2 py-2 cursor-pointer">Contact</li>
+              <li className="text-base px-2 py-2 cursor-pointer  max-sm:hidden">
+                Contact
+              </li>
             </ul>
             <label
-              className="border-2 rounded-xl w-full flex items-center mx-2 relative max-sm:hidden"
+              className="border-2 rounded-xl w-full flex items-center mx-2 relative max-md:hidden"
               htmlFor="search"
             >
               <input
@@ -115,21 +117,28 @@ const Navbar = () => {
                 className="flex items-center mx-4 cursor-pointer"
                 // onClick={() => dispatch(order())}
               >
-                <div className="text-sm flex px-2 font-medium justify-between items-center text-center space-x-6">
+                <div className="text-sm flex px-2 font-medium justify-between items-center text-center space-x-6 max-sm:hidden">
                   <Link
                     className="whitespace-nowrap text-gray-700 hover:text-gray-800"
                     aria-hidden="true"
+                    to="/login"
                   >
                     Sign in
                   </Link>
                   <span className="w-px bg-gray-200 h-6"></span>
-                  <Link className="whitespace-nowrap text-gray-700 hover:text-gray-800">
+                  <Link
+                    to="/Sign"
+                    className="whitespace-nowrap text-gray-700 hover:text-gray-800"
+                  >
                     Create account
                   </Link>
                 </div>
               </div>
-              <ShopingCart />
-              <div className="flex items-center cursor-pointer">
+              {cart && <ShopingCart setCart={setCart} />}
+              <div
+                onClick={() => setCart(true)}
+                className="flex items-center cursor-pointer"
+              >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"

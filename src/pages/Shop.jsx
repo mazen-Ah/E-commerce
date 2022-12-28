@@ -7,6 +7,7 @@ const Shop = () => {
   const [price, setPrice] = useState(0);
   return (
     <div className="">
+      <h3 className="text-4xl font-bold border-b-2 pt-20 pb-6 px-6">Shop</h3>
       <div className="flex">
         <Sidebar setTag={setTag} price={price} setPrice={setPrice} />
         <div className="mb-5">

@@ -15,8 +15,11 @@ const SideNav = ({ menu, setMenu }) => {
           </div>
           <div className="p-4">
             <ul>
-              <Link className="text-gray-900 font-medium">
+              <Link to="/" className="text-gray-900 font-medium">
                 <li className="p-2">Home</li>
+              </Link>
+              <Link to="/Shop" className="text-gray-900 font-medium">
+                <li className="p-2">Shop</li>
               </Link>
               <Link className="text-gray-900 font-medium">
                 <li className="p-2">Contact Us</li>

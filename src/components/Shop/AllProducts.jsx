@@ -9,9 +9,6 @@ const AllProducts = ({ tag, price }) => {
   const { match, check, result } = useSelector((state) => state.Search);
   return (
     <>
-      <h2 className="text-4xl font-bold mb-10">
-        {check ? `Search: ${result}` : `Shop`}
-      </h2>
       <div className="grid md:grid-cols-3 gap-x-6 gap-y-10 my-2 max-md:grid-cols-2">
         {tag.length
           ? check

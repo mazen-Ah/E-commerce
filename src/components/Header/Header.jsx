@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "../ui/Button";
 const Header = () => {
   return (
-    <div className="relative my-16 flex  h-full min-h-[400px] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-black/50 to-black/20 sm:my-16">
+    <div className="relative my-16 flex max-sm:h-0 max-sm:min-h-[250px] min-h-[350px] w-full items-center justify-center rounded-2xl bg-gradient-to-br from-black/50 to-black/20 sm:my-16">
       <div className="w-full">
         <img className="" src="./assets/HeadPhone.png" alt="" />
       </div>
