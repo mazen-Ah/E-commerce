@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Categorys from "./Category/Categorys";
 const Sidebar = ({ setPrice, price, setTag }) => {
   const handlerange = (e) => {
     setPrice(e.target.value);
@@ -10,9 +11,26 @@ const Sidebar = ({ setPrice, price, setTag }) => {
     setTag("");
     setPrice(0);
   };
+  const Cates = [
+    {
+      title: "Category",
+      Category: [
+        "Laptops",
+        "Headphones",
+        "Gadgets",
+        "Accessories",
+        "Televisions",
+        "Cameras",
+      ],
+    },
+    {
+      title: "Brands",
+      Category: ["Beats", "Sony", "Baseus", "Apple", "Samsung", "Lenovo"],
+    },
+  ];
   return (
     <div className="w-full max-w-[250px] max-sm:hidden px-3 py-6">
-      <div className="grid">
+      {/* <div className="grid">
         <h4 className="font-bold text-lg mx-1">Product Categories</h4>
         <ul className="">
           <li
@@ -49,7 +67,13 @@ const Sidebar = ({ setPrice, price, setTag }) => {
             Watches
           </li>
         </ul>
-      </div>
+      </div> */}
+      {Cates.map((item, i) => {
+        return (
+          <Categorys setTag={setTag} title={item.title} item={item} key={i} />
+        );
+      })}
+
       <div className="py-6 mx-1">
         <h4 className="text-lg font-bold ">Filter By Price</h4>
         <input
